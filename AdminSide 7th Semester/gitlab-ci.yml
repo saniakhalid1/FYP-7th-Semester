@@ -1,0 +1,12 @@
+stages:
+  - deploy
+deploy_ofmt_frontend:
+  stage: deploy
+  tags:
+    - gamerse-drop
+  script:
+    - npm i
+    - npm run build
+    - sudo pm2 restart dev-one-of-a-mint
+  only:
+    - ui

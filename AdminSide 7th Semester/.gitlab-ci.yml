@@ -1,0 +1,12 @@
+stages:
+  - deploy
+deploy_ofmt_creator:
+  stage: deploy
+  tags:
+    - livly-app-drop
+  script:
+    - npm i
+    - npm run build
+    - pm2 restart ofmt-creator-site
+  only:
+    - ui
